@@ -8,9 +8,7 @@ attr_accessor :path, :files
   end
 
   def files
-    @files = Dir.entries(@path)
-    @files.delete_if{|file| file == "." || file == ".."}
-
+  @files = Dir.glob("#{@path}/*.mp3").collect {|f| f.gsub("#{@path}/", "")}
   end
 
   def import
