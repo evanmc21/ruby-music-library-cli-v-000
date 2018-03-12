@@ -77,12 +77,11 @@ end
 def play_song
   puts "Which song number would you like to play?"
 
-  input = gets.chomp.to_i
-library_size = Song.all.length
-  if (1..Song.all.length).include?(input)
+    input = gets.chomp.to_i
+    library_size = Song.all.length
     song = Song.all.sort_by { |song| song.name }[input - 1]
-
-    puts "Playing #{song.name} by #{song.artist.name}" if song
-end
-end
+    if input.between?(1, library_size) && song
+    puts "Playing #{song.name} by #{song.artist.name}"
+    end
+  end
 end
