@@ -36,4 +36,5 @@ class Genre
     if !self.songs.include?(song)
       @songs << song
     end
+  end
 end
