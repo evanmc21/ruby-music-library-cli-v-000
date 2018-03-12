@@ -10,6 +10,17 @@ class Song
       self.genre = genre if genre
     end
 
+    def artist=(artist)
+      @artist = artist
+      artist.add_song(self)
+    end
+
+    def genre=(genre)
+      @genre = genre
+      genre.songs << self unless
+      genre.songs.include?(self)
+    end
+
   def self.all
     @@all
   end
@@ -22,16 +33,6 @@ class Song
     @@all.clear
   end
 
-  def artist=(artist)
-    @artist = artist
-    artist.add_song(self)
-  end
-
-  def genre=(genre)
-    @genre = genre
-    genre.songs << self unless
-    genre.songs.include?(self)
-  end
 
   def self.find_by_name(song_name)
     all.detect {|song| song.name == song_name}
