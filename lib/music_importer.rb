@@ -14,6 +14,7 @@ attr_accessor :path, :files
   end
 
   def import
-    files.each {|filename| Song.create_from_filename(filename)}
+    self.files
+    @files.each {|filename| Song.create_from_filename(filename)}
   end
 end
