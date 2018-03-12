@@ -29,7 +29,7 @@ class Genre
   end
 
   def artist
-    songs.collect { |s| s.artist }.uniq
+    songs.map { |s| s.artist }.uniq
   end
 
   def add_song(song)
