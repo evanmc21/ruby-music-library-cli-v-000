@@ -41,6 +41,4 @@ class Artist
       save_song(song) unless songs.include?(song)
     end
 
-
-
 end
