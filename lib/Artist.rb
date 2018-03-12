@@ -40,3 +40,4 @@ class Artist
       @songs.collect{ |s| s.genre }.uniq
     end
 end
+end
